@@ -178,4 +178,14 @@ button.secondary{background:#64748b;color:#e6eef8;}
 
     if(!content) return alert('Keine Ausgabe zum Herunterladen vorhanden.');
     const blob = new Blob([content],{type:'text/plain;charset=utf-8'});
-    const a =
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download=`mac_scan_result.${ext}`;
+    a.click();
+    setStatus('✔️ Download gestartet');
+  });
+
+})();
+</script>
+</body>
+</html>
